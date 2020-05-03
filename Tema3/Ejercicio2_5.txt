@@ -1,0 +1,9 @@
+¿En que se diferencian las reglas de cuadratura de Gauss-Legendre y la de Gauss-Lobatto?
+
+	En que las de Gauss-Legendre utilizan como nodos a evaluar, las raices del polinomio de Legendre(n+1), 
+	que proporcionan n+1 valores en el intervalo (-1,1); se demuestra que al seleccionar estos nodos se obtiene 2n+1 grados de exactitud al calcular la integral mediante el método de la cuadratura de Gauss; mientras que
+	en las de Gauss-Lobatto, además de utilizar las raices de Legendre, se añaden a este conjunto de nodos los
+	extremos del intervalo, por lo que ahora se tendrían dos nodos más, sin embargo, estos no cumplen la norma
+	de ser raíces de Legendre, por lo que, en este caso(en el cual tenemos dos puntos más), en vez de tener
+	2n+1 grados de exactitud, perderíamos dos grados de exactitud y tendríamos 2n-1.
+

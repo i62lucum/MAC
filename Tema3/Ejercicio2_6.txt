@@ -1,0 +1,4 @@
+Describe brevemente en que consisten las reglas de cuadratura adaptativas.
+	Consisten en adaptar el tamaño de paso en cada sub-intervalo, en función de un error, de forma
+	que cada sub-intervalo pueda tener una longitud diferente y la cuadratura sea muy precisa para cada
+	uno de estos intervalos.

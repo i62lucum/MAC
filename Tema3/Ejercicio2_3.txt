@@ -1,0 +1,10 @@
+Se responden las dos respuestas al ejercicio 2.3 tras realizar ejecuciones con el script ejercicio2_3.m
+
+-A igual número de divisiones N, ¿qué fórmula da menor error?
+	La de Simpson es mucho más precisa.
+
+-¿Qué ocurre con el error cuando el vamos aumentando el número de divisiones N?
+	Cuantas más divisiones se realicen, menor será el error cometido al aproximar la integral. Esto
+	es debido a que una curva se podría descomponer en una serie infinita de rectas, cada una creada por dos
+	puntos los cuales están separados por una distancia que tiende a 0, y esta conjunción de rectas sería la curva.
+	Si aumentamos N (el número de intervalos), reducimos esta distancia cada vez más, aproximando mejor la curva.
