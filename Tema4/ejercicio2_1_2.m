@@ -4,7 +4,7 @@ C1 = 10; %Constante de la primera funcion
 C2 = 5; %Constante de la segunda funcion
 x0 = 1; %Valor inicial de x0
 h = 0.1; %Tamanyo del paso
-k = 2; %Numero de pasos a dar
+k = 20; %Numero de pasos a dar
 func1 = @(x,y) y;%La derivada de Ce^x
 funcReal1 = @(x) C1*exp(x);%La funcion real Ce^x
 func2 = @(x,y) x*y^2;%La derivada de la segunda funcion
@@ -37,6 +37,7 @@ text(Xlim(2),Ylim(2)-0.15*(Ylim(2)-Ylim(1)),'Aproximacion1','FontSize',10,'FontW
 input('Introduzca enter para continuar');
 close(gcf)
 hold on
+
 plot(xk,yk(2,:), 'Color', 'b')
 plot(x,y2, 'Color', 'r')
 

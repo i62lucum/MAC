@@ -20,12 +20,10 @@ xk(1)=x0;
 
 if length(f) == 1
     func = f;
-    for i=1:lenY
-        yk(i,1)=y0(i);
-        for j=1:k
-           xk(j+1)=xk(j)+h;
-           yk(i,j+1)=yk(i,j)+h*func(xk(j),yk(i,j));
-        end
+    yk(1,1)=y0(1);
+    for j=1:k
+       xk(j+1)=xk(j)+h;
+       yk(:,j+1)=yk(:,j)+h*func(xk(j),yk(:,j));
     end
 else
     for i=1:lenY
