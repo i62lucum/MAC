@@ -1,13 +1,8 @@
 function [xk,yk]=mRK(f,A,b,c,x0,y0,h,k)
 
 lenY = length(y0);
-lenF = length(f);
 nRows = length(A);
 
-if lenF ~= 1 && lenF ~= lenY
-   disp("Error: el numero de funciones ha de coincidir con el numero valores de y0");
-   return; 
-end
 
 
 yk = zeros(lenY, k+1);
@@ -21,7 +16,7 @@ for j=1:k
    xk(j+1)=xk(j)+h;
    acum=0;
    for g=1:nRows
-       acum=acum+ki(1,g)*b(g);
+       acum=acum+ki(:,g)*b(g);
    end
    yk(:,j+1)=yk(:,j)+h*acum;
 end

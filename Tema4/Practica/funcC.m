@@ -1,8 +1,8 @@
 global a b w f0;
 clf
 t0 = 0; %Valor inicial del tiempo
-v0 = 0; %Velocidad inicial
-x0 = 0; %Posicion inicial
+v0 = 10; %Velocidad inicial
+x0 = 5; %Posicion inicial
 f0 = 5; %Fuerza inicial
 w = 2; %Velocidad angular
 a = 0; %Coeficiente para el rozamiento
@@ -16,10 +16,14 @@ y0(2) = v0;
 
 [xk, yk]=mHeun(@funcB, t0, y0, h, k);
 
-yk = yk.';
+t = linspace(t0, t0+k*h, k+1);
+y = solucion(t,a,b,f0,w);
 
+yk = yk.'
 
+hold on
 
+plot(x,y)
 plot(xk,yk(:,1))
 xlabel("Tiempo")
 ylabel("Posicion")

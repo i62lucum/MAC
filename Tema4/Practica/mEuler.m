@@ -16,7 +16,7 @@ xk(1)=x0;
 yk(:,1)=y0(:);
 for j=1:k
    xk(j+1)=xk(j)+h;
-   yk(:,j+1)=yk(:,j)+h*func(xk(j),yk(:,j));
+   yk(:,j+1)=yk(:,j)+h*f(xk(j),yk(:,j));
 end
 
 end
