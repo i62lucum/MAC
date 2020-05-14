@@ -1,16 +1,28 @@
-
-
-C = 10; %Constante
+global a b;
+clf
 t0 = 0; %Valor inicial del tiempo
-v0 = 2; %Velocidad inicial
-x0 = 5; %Posicion inicial
-a = 10;
-b = 12;
+v0 = 10; %Velocidad inicial
+x0 = 0; %Posicion inicial
+a = 0.1; %Coeficiente para el rozamiento
+b = 1; %Coeficiente para la fuerza elastica
 h = 0.1; %Tamanyo del paso
-k = 10; %Numero de pasos a dar
-func = @(x,v) -b^2*x-2*a*v;
+k = 400; %Numero de pasos a dar
+%func = @(t,z) -b^2*z(1)-2*a*z(2);
+
+y0(1) = x0;
+y0(2) = v0;
+
+[xk, yk]=mHeun(@func, t0, y0, h, k);
+
+yk = yk.';
 
 
-[xk,vk]=mHeun(func, x0, v0, h, k)
+
+plot(xk,yk(:,1))
+xlabel("Tiempo")
+ylabel("Posicion")
+
+%input('')
+%plot(xk,yk(:,2))
 
 
