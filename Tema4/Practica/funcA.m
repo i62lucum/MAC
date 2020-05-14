@@ -1,4 +1,4 @@
-function zk=func(t,z)
+function zk=funcA(t,z)
     global b a;
     zk = zeros(2,1);
     zk(1) = z(2);
