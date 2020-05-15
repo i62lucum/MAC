@@ -3,8 +3,9 @@ bCuad = b^2;
 aCuad = a^2;
 bOme = (bCuad-omega^2);
 aOme = 2.*a.*omega;
-F = F0./(sqrt(bOme^2 + aOme^2));
+
 phi = atan(aOme./bOme);
+F = F0./(sqrt(bOme^2 + aOme^2))*sign(F0*bOme/cos(phi));
 
 xp = F.*cos(omega.*t-phi)
 
