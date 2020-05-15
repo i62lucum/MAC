@@ -8,12 +8,15 @@ w = 2; %Velocidad angular
 a = 0.2; %Coeficiente para el rozamiento
 b = 1; %Coeficiente para la fuerza elastica
 h = 0.1; %Tamanyo del paso
-k = 400; %Numero de pasos a dar
+k = 150; %Numero de pasos a dar
 
 
 y0(1) = x0;
 y0(2) = v0;
 
+%[tk, xk]=mEuler(@funcB, t0, y0, h, k);
+[tk, xk]=mHeun(@funcB, t0, y0, h, k);
+%[xk,yk]=mRK(@funcB, A, B, c, t0, y0, h, k);
 
 A=[0    0  0;
    2/3  0  0;
@@ -21,12 +24,6 @@ A=[0    0  0;
 
 c=[0, 2/3, 2/3];
 B=[1/4, 0, 3/4];
-
-%[tk, xk]=mEuler(@funcB, t0, y0, h, k);
-%[tk, xk]=mHeun(@funcB, t0, y0, h, k);
-[tk, xk]=mRK(@funcB, A, B, c, t0, y0, h, k);
-
-
 
 
 

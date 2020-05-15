@@ -22,6 +22,3 @@ yk = yk.';
 plot(xk,yk(:,1))
 xlabel("Tiempo")
 ylabel("Posicion")
-
-%nombre = "Imagenes/"+"B_"+num2str(a)+"_"+num2str(b)+"_"+num2str(x0)+"_"+num2str(w)+"_"+num2str(f0)+".png";
-%saveas(gcf,nombre);
