@@ -1,35 +1,16 @@
 function ki=etapas(f,A,c,x0,y0,h)
 
-nFunc = length(f);
+yLen = length(y0);
 nRows = length(A);
 
-k = zeros(nFunc,nRows);
+k = zeros(yLen,nRows);
 
-if nFunc == 1
-    func = f;
-    for j=1:nRows
-        acum=0;
-        for g=1:j-1
-           acum=acum+A(j,g)*k(1,g);
-        end
-        k(1,j)=func(x0+c(j)*h, y0(1)+h*acum);
+for i=1:nRows
+    acum=zeros(yLen,1);
+    for j=1:i-1
+       acum=acum+A(i,j)*k(:,j);
     end
-else
-    %Por cada funcion hay una serie de Ki
-    for i=1:nFunc
-        %Se extrae la funcion
-        func = f{i};
-        %Por cada fila de la matriz A hay una Ki
-        for j=1:nRows
-            acum=0;
-            %Se acumulan las anteriores Ki multiplicados por sus
-            %respectivos valores en A.
-            for g=1:j-1
-               acum=acum+A(j,g)*k(i,g);
-            end
-            k(i,j)=func(x0+c(j)*h, y0(i)+h*acum);
-        end
-    end
+    k(:,i)=f(x0+c(i)*h, y0+h*acum);
 end
 
 ki = k;

@@ -1,0 +1,27 @@
+
+clf
+t = 1;
+
+coef1 = -3i/2;
+coef2 = 3i/2;
+
+max = 6;
+
+max = max + 1;
+
+c = zeros(max*2+1,1);
+
+cero = max + 1;
+c(cero-t) = coef1;
+c(cero+t) = coef2;
+
+
+fases(c)
+
+nombreFich = "Images/"+"fasesprueba.png";
+saveas(gcf,nombreFich);
+input('')
+
+amplitudes(c)
+nombreFich = "Images/"+"amplitprueba.png";
+saveas(gcf,nombreFich);

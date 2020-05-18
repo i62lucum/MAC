@@ -1,0 +1,20 @@
+function fases(c)
+
+lenC = length(c);
+
+ticks = strings(lenC,1);
+ti
+count = -(lenC-1)/2;
+for i=1:lenC
+    if count == 0
+        ticks(i) = '0';
+    else
+        ticks(i) = strcat('\frac{',int2str(count),'}{T}');
+    end
+    count = count + 1;
+end
+stem(c)
+
+xticks(
+
+end

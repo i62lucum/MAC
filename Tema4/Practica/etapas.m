@@ -5,12 +5,12 @@ nRows = length(A);
 
 k = zeros(yLen,nRows);
 
-for j=1:nRows
-    acum=0;
-    for g=1:j-1
-       acum=acum+A(j,g)*k(:,g);
+for i=1:nRows
+    acum=zeros(yLen,1);
+    for j=1:i-1
+       acum=acum+A(i,j)*k(:,j);
     end
-    k(:,j)=f(x0+c(j)*h, y0(:)+h*acum);
+    k(:,i)=f(x0+c(i)*h, y0+h*acum);
 end
 
 ki = k;

@@ -2,9 +2,11 @@
 C = 10; %Constante
 x0 = 1; %Valor inicial de x0
 h = 0.1; %Tamanyo del paso
-k = 5; %Numero de pasos a dar
+k = 100; %Numero de pasos a dar
 func = @(x,y) y;%La derivada de Ce^x
 funcReal = @(x) C*exp(x);%La funcion real Ce^x
+%func = @(x,y) x*y^2;%La derivada de la segunda funcion
+%funcReal = @(x) -2./(x.^2+C);%La segunda funcion
 
 
 y0 = funcReal(x0);
