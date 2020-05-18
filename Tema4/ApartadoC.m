@@ -1,0 +1,50 @@
+global a b w f0;
+clf
+t0 = 0; %Valor inicial del tiempo
+v0 = 0; %Velocidad inicial
+x0 = 1; %Posicion inicial
+f0 = 5; %Fuerza inicial
+w = 2; %Velocidad angular
+a = 0; %Coeficiente para el rozamiento
+b = 1; %Coeficiente para la fuerza elastica
+h = 0.1; %Tamanyo del paso
+k = 400; %Numero de pasos a dar
+
+
+y0(1) = x0;
+y0(2) = v0;
+
+
+A=[0    0  0;
+   2/3  0  0;
+   1/3 1/3 0];
+
+c=[0, 2/3, 2/3];
+B=[1/4, 0, 3/4];
+
+%[tk, xk]=mEuler(@funcB, t0, y0, h, k);
+%[tk, xk]=mHeun(@funcB, t0, y0, h, k);
+[tk, xk]=mRK(@funcB, A, B, c, t0, y0, h, k);
+
+
+
+
+
+t = linspace(t0, t0+k*h, k+1);
+x = solucion(t,a,b,f0,w);
+
+xk = xk.';
+
+hold on
+
+plot(t,x,'Color', 'r')
+plot(tk,xk(:,1),'Color', 'b')
+xlabel("Tiempo")
+ylabel("Posicion")
+
+Xlim = get(gca,'XLim');
+Ylim = get(gca,'YLim');
+
+text(Xlim(2),Ylim(2)-0.2*(Ylim(2)-Ylim(1)),'Real','FontSize',10,'FontWeight','bold','Color','r', 'HorizontalAlignment', 'right')
+text(Xlim(2),Ylim(2)-0.25*(Ylim(2)-Ylim(1)),'Aproximacion','FontSize',10,'FontWeight','bold','Color','b', 'HorizontalAlignment', 'right')
+
