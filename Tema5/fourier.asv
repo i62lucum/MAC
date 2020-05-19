@@ -1,5 +1,0 @@
-function fourier(f, N)
-
-int = @(t) 
-
-end
