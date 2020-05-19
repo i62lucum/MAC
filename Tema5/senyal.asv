@@ -1,5 +1,0 @@
-function y=senyal(t)
-
-if cos(2*pi*t) > 0
-
-end
