@@ -30,7 +30,7 @@ XLim(1) = 0.85;
 XLim(2) = XLim(2)+0.15;
 set(gca,'XLim',XLim)
 
-set(gcf,'position',[0,0,1280,256])
+%set(gcf,'position',[0,0,1280,256])
 
 
 end
