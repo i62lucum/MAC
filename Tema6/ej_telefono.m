@@ -118,8 +118,15 @@ for numero=1:nNumeros
     
     %Como las frecuencias son simetricas, nos quedamos con la parte
     %positiva
-    freq = freq(length(freq)/2+1:length(freq));
-    
+    %En algunas ejecuciones, obtiene valores que no debería, en otras no,
+    %lo cual es raro dado que se supone que esto es determinista. Para
+    %paliarlo, en esos casos se ignora el ultimo elementos
+    if mod(length(freq),2)==1
+       freq = freq((length(freq)-1)/2+1:length(freq)-1);
+    else
+       freq = freq(length(freq)/2+1:length(freq));
+    end
+   
     %Puede darse el caso de que haya frecuencias similares como: 840, 844,
     %852..., todas ellas representan el mismo valor en el telefono el 852,
     %por lo que con una de ellas bastaría, nos quedamos con la primera ya
