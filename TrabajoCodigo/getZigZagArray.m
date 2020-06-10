@@ -1,9 +1,14 @@
+%Crea un array recorriendo la matriz cuadrada A en zigzag, llegando hasta
+%el último elemento no nulo.
 function a=getZigZagArray(A)
 
 N = size(A);
+%Orden de la matriz
 N = N(1);
 
+%Vector auxiliar del recorrido.
 aux = zeros(1,N*N);
+
 
 i=1;
 j=1;
@@ -11,7 +16,9 @@ actual=0;
 
 count = 1;
 
+%Tamanyo maximo del vector
 while i*j<N*N+1
+    %Si actual es 0 recorre la matriz hacia arriba a la derecha
     if actual==0
         aux(count)= A(i,j);
         count = count + 1;
@@ -27,6 +34,7 @@ while i*j<N*N+1
             i = i + 1;
         end   
         actual=1;
+    %Si actual es 1 se recorre hacia abajo a la izquierda
     else
         aux(count)= A(i,j);
         count = count + 1;
@@ -46,6 +54,7 @@ while i*j<N*N+1
 
 end
 
+%Se obtiene el ultimo elemento no nulo.
 indexLast = find(aux ~= 0, 1, 'last');
 if isempty(indexLast) 
     indexLast = N*N;
